@@ -1,4 +1,7 @@
 Isis::Application.routes.draw do
+  resources :agents
+  root to: 'agents#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

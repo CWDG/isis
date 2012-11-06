@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @agent.first_name
+%p
+  %b Last name:
+  = @agent.last_name
+%p
+  %b Code name:
+  = @agent.code_name
+%p
+  %b Email:
+  = @agent.email
+%p
+  %b Github:
+  = @agent.github
+
+= link_to 'Edit', edit_agent_path(@agent)
+\|
+= link_to 'Back', agents_path

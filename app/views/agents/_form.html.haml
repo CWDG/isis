@@ -1,0 +1,31 @@
+= form_for @agent do |f|
+  - if @agent.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@agent.errors.count, "error")} prohibited this agent from being saved:"
+      %ul
+        - @agent.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :code_name
+    = f.text_field :code_name
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :github
+    = f.text_field :github
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation, "Password Confirmation"
+    = f.password_field :password_confirmation
+  .actions
+    = f.submit 'Save'
