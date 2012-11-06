@@ -1,0 +1,20 @@
+lite: &lite
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *lite
+  database: db/development.sqlite3
+
+test:
+  <<: *lite
+  database: db/test.sqlite3
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  username: isis
+  database: isis_production
+  pool: 5
+  timeout: 5000
