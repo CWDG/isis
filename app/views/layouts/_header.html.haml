@@ -4,4 +4,7 @@
       .container
         = link_to 'ISIS', root_path, class: 'brand'
         %ul.nav.pull-right
-          %li= link_to "Agent Authentication", root_path
+          - if current_agent
+            %li= link_to "Log Out", log_out_path
+          - else
+            %li= link_to "Agent Authentication", log_in_path

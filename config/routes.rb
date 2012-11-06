@@ -1,5 +1,9 @@
 Isis::Application.routes.draw do
+  get "authenticate_agent" => "sessions#new", as: 'log_in'
+  get "log_out" => "sessions#destroy", as: "log_out"
   resources :agents
+  resources :sessions
+
   root to: 'agents#index'
 
   # The priority is based upon order of creation:

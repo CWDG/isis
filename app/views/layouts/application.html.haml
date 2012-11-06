@@ -9,4 +9,6 @@
   %body
     .container
       = render partial: 'layouts/header'
+      - flash.each do |name, msg|
+        = content_tag :div, msg, id: "flash#{name}", class: "alert alert-#{name}"
       = yield

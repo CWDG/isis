@@ -14,6 +14,15 @@ class Agent < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  def self.authenticate(code_name, password)
+    agent = Agent.find_by_code_name(code_name)
+    if agent && agent.password_hash == BCrypt::Engine.hash_secret(password, agent.password_salt)
+      agent
+    else
+      nil
+    end
+  end
+
 
   private
 
